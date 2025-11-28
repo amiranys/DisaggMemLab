@@ -23,7 +23,6 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="schemes.html">Schemes</a>
-            <a href="README.md">Repo</a>
         </nav>
     </header>
 
@@ -55,9 +54,9 @@
                 <h3>NVMe‑oF (TCP or RDMA)</h3>
                 <div class="mermaid">
                     graph LR
-                    CI[Client<br />(Initiator)] -- NVMe-oF/TCP or RDMA --> FAB[Network Fabric]
-                    FAB --> SV[Server NVMe-oF Target]
-                    SV --> NVMe[Local NVMe SSD]
+                    CI["Client<br />(Initiator)"] -- "NVMe-oF/TCP or RDMA" --> FAB["Network Fabric"]
+                    FAB --> SV["Server NVMe-oF Target"]
+                    SV --> NVMe["Local NVMe SSD"]
                 </div>
             </div>
 
@@ -65,9 +64,9 @@
                 <h3>RDMA direct memory operations (peer-to-peer)</h3>
                 <div class="mermaid">
                     graph LR
-                    C[Client] -- ibverbs/RDMA --> HCA[HCA / RDMA Fabric]
-                    HCA --> S[Server]
-                    S --> Mem[Server DRAM]
+                    C["Client"] -- "ibverbs/RDMA" --> HCA["HCA / RDMA Fabric"]
+                    HCA --> S["Server"]
+                    S --> Mem["Server DRAM"]
                 </div>
             </div>
 
@@ -75,11 +74,11 @@
                 <h3>CXL (conceptual) — byte-addressable remote memory</h3>
                 <div class="mermaid">
                     graph LR
-                    Host[Host CPU &amp; Memory] --- PCIe[PCIe/CXL Switch]
-                    PCIe --- Pool[CXL Memory Pool]
+                    Host["Host CPU &amp; Memory"] --- PCIe["PCIe/CXL Switch"]
+                    PCIe --- Pool["CXL Memory Pool"]
                     Host --- Pool
-                    note right of Pool: CXL enables coherent, low-latency
-                    note right of Host: requires CXL-capable CPU, root complex
+                    note right of Pool: "CXL enables coherent, low-latency"
+                    note right of Host: "requires CXL-capable CPU, root complex"
                 </div>
             </div>
 
@@ -107,32 +106,6 @@
             </div>
         </section>
 
-        <section>
-            <h2>How to use this page</h2>
-            <p>
-                This `site/` folder is self-contained. To publish as a single-folder Pages site, copy the contents of
-                `site/` into a repository and enable GitHub Pages. The diagrams are rendered client-side via Mermaid
-                CDN.
-            </p>
-            <p>
-                If you prefer to avoid external CDNs, replace Mermaid blocks with pre-rendered SVG files placed into
-                `site/assets/` and update the HTML to reference them.
-            </p>
-        </section>
-
-        <section>
-            <h2>Included files</h2>
-            <ul>
-                <li>`index.html` — this page</li>
-                <li>`styles.css` — simple styling</li>
-                <li>`README.md` — usage notes for the site folder</li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>For full scripts, CloudLab profiles and advanced documentation see the full repository. Contact the repo
-                owner if you need help reserving hardware.</p>
-        </footer>
     </main>
 </body>
 

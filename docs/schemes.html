@@ -33,9 +33,9 @@
             <div class="diagram">
                 <div class="mermaid">
                     graph TD
-                    Client[Client Initiator] -- TCP / RDMA --> Switch[Network Fabric / Switch]
-                    Switch --> Server[Server: nvmet target]
-                    Server --> NVME[Local NVMe SSD]
+                    Client["Client Initiator"] -- "TCP / RDMA" --> Switch["Network Fabric / Switch"]
+                    Switch --> Server["Server: nvmet target"]
+                    Server --> NVME["Local NVMe SSD"]
                 </div>
             </div>
         </section>
@@ -45,9 +45,9 @@
             <div class="diagram">
                 <div class="mermaid">
                     graph TD
-                    C[Client App] -- ibverbs API --> HCA[Client HCA]
-                    HCA -- RDMA --> HCA2[Server HCA]
-                    HCA2 --> SrvMem[Server DRAM]
+                    C["Client App"] -- "ibverbs API" --> HCA["Client HCA"]
+                    HCA -- "RDMA" --> HCA2["Server HCA"]
+                    HCA2 --> SrvMem["Server DRAM"]
                 </div>
             </div>
         </section>
@@ -58,8 +58,8 @@
             <div class="diagram">
                 <div class="mermaid">
                     graph TD
-                    Host[Host CPU & Memory] --- PCIe[PCIe/CXL Switch]
-                    PCIe --- Pool[CXL Memory Pool]
+                    Host["Host CPU & Memory"] --- PCIe["PCIe/CXL Switch"]
+                    PCIe --- Pool["CXL Memory Pool"]
                     Host --- Pool
                 </div>
             </div>
