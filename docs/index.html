@@ -70,11 +70,14 @@
                 <h3>CXL (conceptual) — byte-addressable remote memory</h3>
                 <div class="mermaid">
                     graph LR
-                    Host["Host CPU &amp; Memory"] --> PCIe["PCIe/CXL Switch"]
-                    PCIe --> Pool["CXL Memory Pool"]
+                    Host["Host CPU and Memory"]
+                    PCIe["PCIe / CXL Switch"]
+                    Pool["CXL Memory Pool"]
+                    Host --> PCIe
+                    PCIe --> Pool
                     Host --> Pool
-                    note right of Pool: CXL enables coherent, low-latency
-                    note right of Host: requires CXL-capable CPU, root complex
+                    note right of Pool: CXL enables coherent, low latency access
+                    note right of Host: requires CXL-capable CPU and root complex
                 </div>
             </div>
 
@@ -93,6 +96,7 @@
                     participant S as Server
                     participant N as Network
                     participant C as Client
+                    participant D as LocalNVMe
                     S->>N: export NVMe namespace (nvmet configfs)
                     C->>N: nvme discover
                     C->>N: nvme connect
